@@ -1,1 +1,8 @@
+com\example\demoweb\service\LikesService.class
+com\example\demoweb\service\PostService.class
 com\example\demoweb\DemoWebApplication.class
+com\example\demoweb\controller\PostsViewController.class
+com\example\demoweb\repository\PostRepository.class
+com\example\demoweb\controller\LikesController.class
+com\example\demoweb\controller\PostsCreateController.class
+com\example\demoweb\model\Post.class

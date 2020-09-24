@@ -1,20 +1,23 @@
 package com.example.demoweb.service;
 
 import com.example.demoweb.model.Post;
-import org.springframework.stereotype.*;
+import com.example.demoweb.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class PostService {
+    @Autowired
+    PostRepository postRepository;
 
+    public Iterable<Post> listAllPosts() {
+        return postRepository.findAll();
+    }
 
-    public List<Post> listAllPosts(){
-
-        return List.of(new Post("Choto-to", new Date(1917, Calendar.FEBRUARY, 15), 10000),
-                new Post("Neti",new Date(1917, Calendar.APRIL, 20), 150000),
-                new Post("voeto",new Date(1917, Calendar.AUGUST, 1), 20000));
+    public void create(String text) {
+        Post post = new Post(null, text, new Date());
+        postRepository.save(post);
     }
 }
